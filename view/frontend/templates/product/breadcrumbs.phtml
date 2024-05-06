@@ -1,0 +1,34 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+/** @var \Magento\Theme\Block\Html\Breadcrumbs $block */
+/** @var \DMTQ\LayeredBreadcrumbs\ViewModel\Product\Breadcrumbs $viewModel */
+$viewModel = $block->getData('viewModel');
+$breadCrumbs = $viewModel->getBreadcrumbs();
+?>
+
+<?php if ($breadCrumbs && is_array($breadCrumbs)) : ?>
+    <div class="breadcrumbs">
+        <ul class="items" itemscope itemtype="https://schema.org/BreadcrumbList">
+            <?php $crumbIndex = 1; ?>
+            <?php foreach ($breadCrumbs as $crumbName => $crumbInfo) : ?>
+                <li class="item <?= $block->escapeHtmlAttr($crumbName) ?>" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <?php if ($crumbInfo['link']) : ?>
+                        <a itemprop="item" href="<?= $block->escapeUrl($crumbInfo['link']) ?>"
+                           title="<?= $block->escapeHtml($crumbInfo['title']) ?>">
+                            <span itemprop="name"><?= $block->escapeHtml($crumbInfo['label']) ?></span>
+                        </a>
+                    <?php elseif ($crumbInfo['last']) : ?>
+                        <strong itemprop="name"><?= $block->escapeHtml($crumbInfo['label']) ?></strong>
+                    <?php else : ?>
+                        <span itemprop="name"><?= $block->escapeHtml($crumbInfo['label']) ?></span>
+                    <?php endif; ?>
+                    <meta itemprop="position" content="<?= $crumbIndex; ?>"/>
+                </li>
+                <?php $crumbIndex++; ?>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+<?php endif; ?>

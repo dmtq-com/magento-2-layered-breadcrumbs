@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="layered_breadcrumbs" translate="label" type="text" sortOrder="8888" showInDefault="1" showInWebsite="0" showInStore="0">
+            <label>Layered Breadcrumbs</label>
+            <tab>dmtq</tab>
+            <resource>DMTQ_LayeredBreadcrumbs::configuration</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Layered Breadcrumbs</label>
+                <field id="enabled" translate="label comment" sortOrder="1" type="select" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="categories" translate="label" sortOrder="2" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Main Categories</label>
+                    <frontend_model>DMTQ\LayeredBreadcrumbs\Block\Adminhtml\System\CategoryState</frontend_model>
+                    <comment>Unselected categories and their subcategories are not displayed on the breadcrumbs.</comment>
+                </field>
+                <field id="show_all_parent" translate="label comment" sortOrder="3" type="select" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Show All Parent Category</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Show all unselected parent category on the breadcrumbs</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
