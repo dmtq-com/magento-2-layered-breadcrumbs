@@ -5,7 +5,7 @@
             <label>Layered Breadcrumbs</label>
             <tab>dmtq</tab>
             <resource>DMTQ_LayeredBreadcrumbs::configuration</resource>
-            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
                 <label>Layered Breadcrumbs</label>
                 <field id="enabled" translate="label comment" sortOrder="1" type="select" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Enable</label>
